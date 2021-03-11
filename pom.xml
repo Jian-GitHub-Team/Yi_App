@@ -16,4 +16,56 @@
 
     </properties>
 
+<!--    <dependencies>-->
+<!--    <dependency>-->
+<!--        <groupId>org.drombler.commons</groupId>-->
+<!--        <artifactId>drombler-commons-fx-core</artifactId>-->
+<!--&lt;!&ndash;        <version>0.7</version>&ndash;&gt;-->
+<!--    </dependency>-->
+<!--    </dependencies>-->
+<!--    <dependencies>-->
+<!--        <dependency>-->
+<!--            <groupId>org.openjfx</groupId>-->
+<!--            <artifactId>javafx-controls</artifactId>-->
+<!--            <version>11</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.openjfx</groupId>-->
+<!--            <artifactId>javafx-fxml</artifactId>-->
+<!--            <version>11</version>-->
+<!--        </dependency>-->
+<!--    </dependencies>-->
+
+<!--    <resource>-->
+<!--        <directory>src/main/resources</directory>-->
+<!--        <includes>-->
+<!--            <include>**/*.properties</include>-->
+<!--            <include>**/*.fxml</include>-->
+<!--            <include>**/*.css</include>-->
+<!--            <include>**/fxmls/*.fxml</include>-->
+<!--            <include>**/images/*.png</include>-->
+<!--            <include>**/images/*.JPG</include>-->
+<!--        </includes>-->
+<!--    </resource>-->
+
+    <build>
+        <resources>
+
+            <resource>
+                <!-- 这里是放在 src/main/java-->
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.fxml</include>
+                    <include>**/fxmls/*.fxml</include>
+                    <include>**/images/*.png</include>
+                    <include>**/images/*.JPG</include>
+                    <!-- 如果想要弄个包名专门放fxml文件，像上一行这样添加设置 -->
+                    <!-- 之后，使用getResource("fxml/xx.fxml")这样子 -->
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
+
 </project>

@@ -1,23 +1,29 @@
 package com.view;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
 /**
  * 登录界面
+ *
  * @author qi
  */
 public class Login_View extends Application {
@@ -37,7 +43,7 @@ public class Login_View extends Application {
     private double yOffset = 0;
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
         // 获得屏幕大小
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -45,13 +51,25 @@ public class Login_View extends Application {
         double view_x = (screenSize.width - 500) / 2;
         double view_y = (screenSize.height - 350) / 2;
 
-
-//        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        root = new BorderPane();
+        String fxml = "fxmls/Login_View_FXML.fxml";
+        URL url = getClass().getClassLoader().getResource(fxml);
+//        System.out.println(fxml);
+        if(url == null){
+            System.out.println("OOOOOOOOO");
+            System.exit(0);
+        }
+//        System.out.println(fxml);
+        Parent root = FXMLLoader.load(url);
+//        root = new BorderPane();
         primaryStage.setX(view_x);
         primaryStage.setY(view_y);
         primaryStage.setTitle("登录");
+
         scene = new Scene(root, 500, 350);
+//        BorderPane backgroudPane = new BorderPane();
+//        Scene backgroud = new Scene(backgroudPane,500,350);
+
+//        primaryStage.setScene(backgroud);
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
 
@@ -111,8 +129,8 @@ public class Login_View extends Application {
 //            primaryStage.setHeight(nextHeight);
 //            if(!isBottom && !isBottomRight && !isRight)
 //            {
-                primaryStage.setX(event.getScreenX() - xOffset);
-                primaryStage.setY(event.getScreenY() - yOffset);
+            primaryStage.setX(event.getScreenX() - xOffset);
+            primaryStage.setY(event.getScreenY() - yOffset);
 //            }
         });
 
@@ -121,18 +139,29 @@ public class Login_View extends Application {
             yOffset = event.getSceneY();
         });
 
-        setComponents();
+//        setComponents();
 
         primaryStage.show();
     }
 
-    private void setComponents(){
+    private void setComponents() {
+//      设置面板文字
         Label userName = new Label("用户名");
         Label password = new Label("密码");
         VBox vBox = new VBox();
-        vBox.getChildren().addAll(userName,password);
-        vBox.setPadding(new Insets(30,30,30,30));
+        vBox.getChildren().addAll(userName, password);
+        vBox.setPadding(new Insets(30, 30, 30, 100));
         vBox.setAlignment(Pos.CENTER_LEFT);
+
         root.setCenter(vBox);
+
+//      设置背景图片
+        String url = "file:" + this.getClass().getResource("/").getPath() + "/images/HomepageGlass.png";
+        BackgroundImage backgroundImage = new BackgroundImage(new Image(url),
+                BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+        Background background = new Background(backgroundImage);
+        root.setBackground(background);
+//        root.setCenter(backgroudImage);
     }
 }

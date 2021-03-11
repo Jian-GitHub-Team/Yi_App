@@ -63,7 +63,7 @@ class other {
 
     public void start() {
         Stage primaryStage = new Stage();
-//        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("Login_View_FXML.fxml"));
         BorderPane root = new BorderPane();
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 800, 450));
