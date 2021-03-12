@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Yi_App" target="13" />
+      <module name="Yi_App" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

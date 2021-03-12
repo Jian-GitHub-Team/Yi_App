@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Login_View_Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Login_View_Controller">
    <children>
       <ImageView fitHeight="350.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,9 +22,9 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="414.0" spacing="25.0">
                <children>
-                  <Label text="用户名：" textFill="WHITE">
+                  <Label prefHeight="26.0" prefWidth="90.0" text="用户名：" textFill="#cdcdcd">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <TextField fx:id="userName" onKeyPressed="#login" promptText="请输入用户名">
@@ -39,9 +39,9 @@
             </HBox>
             <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="276.0" spacing="38.0">
                <children>
-                  <Label text="密码：" textFill="WHITE">
+                  <Label prefHeight="26.0" prefWidth="77.0" text="密码：" textFill="#cdcdcd">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <TextField fx:id="password" onKeyPressed="#login" promptText="请输入密码" />
@@ -54,9 +54,20 @@
       </VBox>
       <HBox alignment="CENTER" layoutX="108.0" layoutY="242.0" prefHeight="46.0" prefWidth="272.0" spacing="50.0">
          <children>
-            <Button fx:id="login_Button" alignment="CENTER" mnemonicParsing="false" onAction="#lgoin" prefHeight="25.0" prefWidth="60.0" text="登录" />
-            <Button fx:id="quit_Button" mnemonicParsing="false" onMouseClicked="#quit" prefHeight="25.0" prefWidth="60.0" text="退出" />
+            <Button fx:id="login_Button" alignment="CENTER" mnemonicParsing="false" onAction="#lgoin" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: RGB(70,70,100,0.8);" text="登录" textFill="#cdcdcd">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+            <Button fx:id="quit_Button" mnemonicParsing="false" onMouseClicked="#quit" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: RGB(70,70,100,0.8) RGB(70,70,100,0.8);" text="退出" textFill="#cdcdcd">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
          </children>
       </HBox>
+      <Label fx:id="registration" layoutX="384.0" layoutY="104.0" onMouseClicked="#registration" text="没有账号? 点我注册" textFill="#6fd1ff" underline="true">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
