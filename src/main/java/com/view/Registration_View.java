@@ -1,5 +1,6 @@
 package com.view;
 
+import com.controller.Login_View_Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -28,6 +29,7 @@ import java.net.URL;
  */
 public class Registration_View {
 
+    private static Login_View_Controller login_view_controller;
     private Stage primaryStage;
     private BorderPane root;
     private Scene scene;
@@ -136,6 +138,14 @@ public class Registration_View {
 
         primaryStage.setAlwaysOnTop(true);
         primaryStage.show();
+    }
+
+    public Registration_View(Login_View_Controller login_view_controller){
+        this.login_view_controller = login_view_controller;
+    }
+
+    public static void setUser(String userName,String password){
+        login_view_controller.setUser(userName,password);
     }
 
     public boolean isShowing(){

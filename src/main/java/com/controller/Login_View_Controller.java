@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.view.Login_View;
 import com.view.Registration_View;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,11 +49,16 @@ public class Login_View_Controller {
     @FXML
     void registration(MouseEvent event) {
         if (event.getButton() == MouseButton.PRIMARY && ( registration_view == null ? true : !registration_view.isShowing() )) {
-            registration_view = new Registration_View();
+            registration_view = new Registration_View(this);
             registration_view.start();
         }else if (event.getButton() == MouseButton.PRIMARY && registration_view != null && registration_view.isShowing()) {
             registration_view.focus();
         }
+    }
+
+    public void setUser(String userName,String password){
+        this.userName.setText(userName);
+        this.password.setText(password);
     }
 
 }

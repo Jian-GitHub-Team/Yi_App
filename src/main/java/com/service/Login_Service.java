@@ -4,7 +4,6 @@ import com.utils.Base64Util;
 import com.utils.HttpClientUtil;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author qi
@@ -15,17 +14,18 @@ public class Login_Service {
         String url = "http://localhost:8081/Yi/Login";
         boolean result;
         try {
-            Map hashMap = new HashMap<String,String>();
+            HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("userName", Base64Util.encode("Jian"));
             hashMap.put("password", Base64Util.encode("Ikarosu"));
             result = Boolean.parseBoolean(HttpClientUtil.doPost(url,hashMap));
-            if (result){
-                System.out.println(result);
-            }else {
-                System.out.println(result);
-            }
+//            if (result){
+//                System.out.println(result);
+//            }else {
+//                System.out.println(result);
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }
