@@ -1,6 +1,8 @@
 package com.service;
 
+import com.alibaba.fastjson.JSON;
 import com.utils.Base64Util;
+import com.utils.HmacSHA512_Util;
 import com.utils.HttpClientUtil;
 
 import java.util.HashMap;
@@ -23,8 +25,9 @@ public class Registration_Service {
         try {
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("userName", Base64Util.encode(userName));
-            hashMap.put("password", Base64Util.encode(password));
-            hashMap.put("time", Base64Util.encode(String.valueOf(System.currentTimeMillis()/1000)));
+            String time = String.valueOf(System.currentTimeMillis()/1000);
+            hashMap.put("password", Base64Util.encode(HmacSHA512_Util.HmacSHA512(password,time)));
+            hashMap.put("time", Base64Util.encode(time));
             result = Boolean.parseBoolean(HttpClientUtil.doPost(url,hashMap));
             return result;
         } catch (Exception e) {

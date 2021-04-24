@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.service.Login_Service;
 import com.view.Login_View;
 import com.view.Registration_View;
 import javafx.event.ActionEvent;
@@ -33,7 +34,11 @@ public class Login_View_Controller {
 
     @FXML
     void lgoin(ActionEvent event) {
+        if ( !"".equals(userName.getText()) && !"".equals(password.getText()) ){
+            if ( Login_Service.login(userName.getText() , password.getText()) ){
 
+            }
+        }
     }
 
     @FXML
@@ -59,6 +64,15 @@ public class Login_View_Controller {
     public void setUser(String userName,String password){
         this.userName.setText(userName);
         this.password.setText(password);
+    }
+
+    @FXML
+    void initialize() {
+        assert userName != null : "fx:id=\"userName\" was not injected: check your FXML file 'Login_View_FXML.fxml'.";
+        assert password != null : "fx:id=\"password\" was not injected: check your FXML file 'Login_View_FXML.fxml'.";
+        assert login_Button != null : "fx:id=\"login_Button\" was not injected: check your FXML file 'Login_View_FXML.fxml'.";
+        assert quit_Button != null : "fx:id=\"quit_Button\" was not injected: check your FXML file 'Login_View_FXML.fxml'.";
+        assert registration != null : "fx:id=\"registration\" was not injected: check your FXML file 'Login_View_FXML.fxml'.";
     }
 
 }

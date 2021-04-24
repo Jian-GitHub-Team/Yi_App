@@ -1,33 +1,29 @@
 package com.view;
 
-import javafx.application.Application;
+import com.controller.Login_View_Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
 /**
- * 登录界面
+ * 用户界面
  *
  * @author qi
  */
-public class Login_View extends Application {
+public class User_View {
 
+    private static Login_View_Controller login_view_controller;
     private Stage primaryStage;
     private BorderPane root;
     private Scene scene;
@@ -42,36 +38,31 @@ public class Login_View extends Application {
     private double xOffset = 0;
     private double yOffset = 0;
 
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        this.primaryStage = primaryStage;
+    public void start() {
+        primaryStage = new Stage();
         // 获得屏幕大小
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         // 设置窗口位置居中以及窗口大小
         double view_x = (screenSize.width - 500) / 2;
         double view_y = (screenSize.height - 350) / 2;
 
-        String fxml = "fxmls/Login_View_FXML.fxml";
+        String fxml = "fxmls/Registration_View_FXML.fxml";
         URL url = getClass().getClassLoader().getResource(fxml);
-//        System.out.println(fxml);
-        if(url == null){
-            System.out.println("OOOOOOOOO");
-            System.exit(0);
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(url);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
         }
-//        System.out.println(fxml);
-        Parent root = FXMLLoader.load(url);
-//        root = new BorderPane();
         primaryStage.setX(view_x);
         primaryStage.setY(view_y);
-//        primaryStage.setOpacity(0.8);
-//        primaryStage.setTitle("登录");
+        primaryStage.setTitle("Yi");
 
-        scene = new Scene(root, 500, 350);
-//        BorderPane backgroudPane = new BorderPane();
-//        Scene backgroud = new Scene(backgroudPane,500,350);
+        scene = new Scene(root, 300, 500);
 
-//        primaryStage.setScene(backgroud);
         primaryStage.setScene(scene);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
 
 //        root.setOnMouseMoved(event -> {
 //            event.consume();
@@ -139,21 +130,24 @@ public class Login_View extends Application {
             yOffset = event.getSceneY();
         });
 
-//        setComponents();
-//        System.out.println("\uDBC0\uDD00");
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
-        /*
-1) DECORATED——白色背景，带有最小化/最大化/关闭等有操作系统平台装饰（默认设置）
-
-2) UNDECORATED——白色背景，没有操作系统平台装饰
-
-3) TRANSPARENT——透明背景，没有操作系统平台装饰
-
-4) UTILITY——白色背景，只有关闭操作系统平台装饰
-
-5) UNIFIED——有操作系统平台装饰，消除装饰和内容之间的边框，内容背景和边框背景一致
-         */
+        primaryStage.setAlwaysOnTop(true);
         primaryStage.show();
+    }
+
+    public User_View(Login_View_Controller login_view_controller){
+        this.login_view_controller = login_view_controller;
+    }
+
+    public static void setUser(String userName,String password){
+        login_view_controller.setUser(userName,password);
+    }
+
+    public boolean isShowing(){
+        return primaryStage.isShowing();
+    }
+
+    public void focus(){
+        primaryStage.requestFocus();
     }
 
     private void setComponents() {
@@ -175,5 +169,9 @@ public class Login_View extends Application {
         Background background = new Background(backgroundImage);
         root.setBackground(background);
 //        root.setCenter(backgroudImage);
+    }
+
+    public void close(){
+        this.primaryStage.close();
     }
 }

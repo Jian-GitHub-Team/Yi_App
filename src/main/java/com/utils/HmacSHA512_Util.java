@@ -19,7 +19,7 @@ public class HmacSHA512_Util {
      * @param key 加密所需的密钥 String
      * @return 返回加密后的文本 String
      */
-    private static String HmacSHA512(String data, String key) {
+    public static String HmacSHA512(String data, String key) {
         String result = "";
         byte[] bytesKey = key.getBytes();
         final SecretKeySpec secretKey = new SecretKeySpec(bytesKey, "HmacSHA512");
