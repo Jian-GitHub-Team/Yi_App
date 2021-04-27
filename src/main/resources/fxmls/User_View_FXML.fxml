@@ -1,47 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.15" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="800.0" prefWidth="1200.0" style="-fx-border-style: none;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-  <items>
-    <AnchorPane fx:id="topFirstPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-border-style: none;" />
-    <AnchorPane fx:id="bottomFirstPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-border-style: none;">
+<BorderPane fx:id="basePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.User_View_Controller">
+   <top>
+      <AnchorPane prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: rgb(195,195,195,252)(195,195,195,252);" BorderPane.alignment="CENTER">
          <children>
-            <SplitPane dividerPositions="0.15" layoutX="-1.0" layoutY="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="673.0" prefWidth="1200.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="176.0">
+            <Label fx:id="userName" alignment="CENTER" contentDisplay="CENTER" layoutX="846.0" layoutY="21.0" prefHeight="61.0" prefWidth="167.0" text="userName" textAlignment="CENTER">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="userAvatar" fitHeight="58.0" fitWidth="62.0" layoutX="1035.0" layoutY="22.0" onMouseClicked="#clickUserAvatar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user_avatar.png" />
+               </image>
+               <effect>
+                  <DropShadow height="160.0" offsetX="2.0" offsetY="5.0" radius="82.0" width="170.0" />
+               </effect></ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <left>
+            <BorderPane fx:id="rightBorderPane" prefHeight="700.0" prefWidth="200.0" style="-fx-background-color: rgb(0,0,0,0);" BorderPane.alignment="CENTER">
+               <top>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ScrollPane layoutX="2.0" prefHeight="673.0" prefWidth="174.0">
-                           <content>
-                              <VBox fx:id="leftVBox" prefHeight="669.0" prefWidth="170.0" />
-                           </content>
-                        </ScrollPane>
+                        <ImageView fx:id="addFriend" fitHeight="28.0" fitWidth="35.0" onMouseClicked="#clickAddFriend" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/addfriend.png" />
+                           </image>
+                           <effect>
+                              <DropShadow height="40.0" offsetX="1.0" offsetY="1.0" radius="24.5" width="60.0" />
+                           </effect>
+                        </ImageView>
                      </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <SplitPane dividerPositions="0.6793948126801153" layoutX="-6.0" layoutY="-5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="696.0" prefWidth="1032.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <ScrollPane layoutX="6.0" layoutY="7.0" prefHeight="457.0" prefWidth="1010.0" />
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <TextArea layoutX="4.0" layoutY="2.0" prefHeight="196.0" prefWidth="1012.0" />
-                                 </children>
-                              </AnchorPane>
-                          </items>
-                        </SplitPane>
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
-         </children></AnchorPane>
-  </items>
-</SplitPane>
+                     <BorderPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </BorderPane.margin>
+                  </HBox>
+               </top>
+               <center>
+                  <ScrollPane prefHeight="200.0" prefWidth="210.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+                     <content>
+                        <VBox fx:id="friendVBox" prefHeight="668.0" prefWidth="198.0" spacing="2.0" style="-fx-background-color: rgb(0,0,0);">
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding></VBox>
+                     </content>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </left>
+         <right>
+            <BorderPane fx:id="leftBorderPane" prefHeight="670.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+               <center>
+                  <ImageView fx:id="backgroundImageView" fitHeight="700.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../images/伊沟通85_Chat.png" />
+                     </image>
+                  </ImageView>
+               </center>
+            </BorderPane>
+         </right>
+      </BorderPane>
+   </center>
+</BorderPane>

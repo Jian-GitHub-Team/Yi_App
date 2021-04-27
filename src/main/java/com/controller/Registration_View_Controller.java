@@ -1,7 +1,6 @@
 package com.controller;
 
 import com.service.Registration_Service;
-import com.sun.javafx.webkit.InputMethodClientImpl;
 import com.view.Registration_View;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -10,8 +9,6 @@ import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
-import java.util.HashSet;
 
 public class Registration_View_Controller {
 

@@ -1,6 +1,5 @@
 package com.view;
 
-import com.controller.Login_View_Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -23,7 +22,6 @@ import java.net.URL;
  */
 public class User_View {
 
-    private static Login_View_Controller login_view_controller;
     private Stage primaryStage;
     private BorderPane root;
     private Scene scene;
@@ -38,17 +36,19 @@ public class User_View {
     private double xOffset = 0;
     private double yOffset = 0;
 
+    public User_View(){}
+
     public void start() {
         primaryStage = new Stage();
         // 获得屏幕大小
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         // 设置窗口位置居中以及窗口大小
-        double view_x = (screenSize.width - 500) / 2;
-        double view_y = (screenSize.height - 350) / 2;
+        double view_x = (screenSize.width - 1200) / 2;
+        double view_y = (screenSize.height - 800) / 2;
 
-        String fxml = "fxmls/Registration_View_FXML.fxml";
+        String fxml = "fxmls/User_View_FXML.fxml";
         URL url = getClass().getClassLoader().getResource(fxml);
-        Parent root = null;
+        Parent root;
         try {
             root = FXMLLoader.load(url);
         } catch (IOException e) {
@@ -59,7 +59,7 @@ public class User_View {
         primaryStage.setY(view_y);
         primaryStage.setTitle("Yi");
 
-        scene = new Scene(root, 300, 500);
+        scene = new Scene(root);
 
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
@@ -132,14 +132,6 @@ public class User_View {
 
         primaryStage.setAlwaysOnTop(true);
         primaryStage.show();
-    }
-
-    public User_View(Login_View_Controller login_view_controller){
-        this.login_view_controller = login_view_controller;
-    }
-
-    public static void setUser(String userName,String password){
-        login_view_controller.setUser(userName,password);
     }
 
     public boolean isShowing(){

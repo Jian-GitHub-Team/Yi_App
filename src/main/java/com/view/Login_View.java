@@ -1,5 +1,6 @@
 package com.view;
 
+import com.controller.Login_View_Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -59,7 +60,10 @@ public class Login_View extends Application {
             System.exit(0);
         }
 //        System.out.println(fxml);
-        Parent root = FXMLLoader.load(url);
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
+        Parent root = fxmlLoader.load();
+//        Login_View_Controller login_view_controller = (Login_View_Controller)fxmlLoader.getController();
+        ((Login_View_Controller) fxmlLoader.getController()).setStage(primaryStage);
 //        root = new BorderPane();
         primaryStage.setX(view_x);
         primaryStage.setY(view_y);

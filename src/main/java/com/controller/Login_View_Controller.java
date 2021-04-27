@@ -3,6 +3,7 @@ package com.controller;
 import com.service.Login_Service;
 import com.view.Login_View;
 import com.view.Registration_View;
+import com.view.User_View;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -12,10 +13,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class Login_View_Controller {
 
     private Registration_View registration_view = null;
+    private Stage stage;
 
     @FXML
     private TextField userName;
@@ -36,7 +39,9 @@ public class Login_View_Controller {
     void lgoin(ActionEvent event) {
         if ( !"".equals(userName.getText()) && !"".equals(password.getText()) ){
             if ( Login_Service.login(userName.getText() , password.getText()) ){
-
+                User_View user_view = new User_View();
+                stage.close();
+                user_view.start();
             }
         }
     }
@@ -75,4 +80,7 @@ public class Login_View_Controller {
         assert registration != null : "fx:id=\"registration\" was not injected: check your FXML file 'Login_View_FXML.fxml'.";
     }
 
+    public void setStage(Stage stage){
+        this.stage = stage;
+    }
 }
