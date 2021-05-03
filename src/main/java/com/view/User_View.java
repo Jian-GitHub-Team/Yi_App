@@ -1,5 +1,6 @@
 package com.view;
 
+import com.controller.User_View_Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -48,9 +49,12 @@ public class User_View {
 
         String fxml = "fxmls/User_View_FXML.fxml";
         URL url = getClass().getClassLoader().getResource(fxml);
+        FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root;
         try {
-            root = FXMLLoader.load(url);
+            root = fxmlLoader.load();
+//            User_View_Controller user_view_controller = fxmlLoader.getController();
+//            user_view_controller.test();//开始线程
         } catch (IOException e) {
             e.printStackTrace();
             return;

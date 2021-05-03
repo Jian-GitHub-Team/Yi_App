@@ -24,6 +24,25 @@ public class Image_Util {
         GraphicsContext g = canvas.getGraphicsContext2D();
         g.fillOval(0, 0, d, d);
         g.setGlobalBlendMode(BlendMode.SRC_ATOP);
+        /*
+        SRC_OVER,
+    SRC_ATOP,
+    ADD,
+    MULTIPLY,
+    SCREEN,
+    OVERLAY,
+    DARKEN,
+    LIGHTEN,
+    COLOR_DODGE,
+    COLOR_BURN,
+    HARD_LIGHT,
+    SOFT_LIGHT,
+    DIFFERENCE,
+    EXCLUSION,
+    RED,
+    GREEN,
+    BLUE;
+         */
         g.drawImage(img, x, y);
         return canvas.snapshot(null, null);
     }

@@ -53,7 +53,7 @@
                   </HBox>
                </top>
                <center>
-                  <ScrollPane prefHeight="200.0" prefWidth="210.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+                  <ScrollPane fx:id="friends_ScrollPane" prefHeight="200.0" prefWidth="210.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
                      <content>
                         <VBox fx:id="friendVBox" prefHeight="668.0" prefWidth="198.0" spacing="2.0" style="-fx-background-color: rgb(0,0,0);">
                            <padding>

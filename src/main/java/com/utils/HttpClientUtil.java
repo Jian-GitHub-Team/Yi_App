@@ -80,7 +80,7 @@ public class HttpClientUtil {
      * @param param
      * @return String
      */
-    public static String doPost(String url, Map<String, String> param) {
+    public static <T> String doPost(String url, Map<String, T> param) {
         // 创建Httpclient对象
         CloseableHttpClient httpClient = HttpClients.createDefault();
         CloseableHttpResponse response = null;
@@ -92,7 +92,7 @@ public class HttpClientUtil {
             if (param != null) {
                 List<NameValuePair> paramList = new ArrayList<>();
                 for (String key : param.keySet()) {
-                    paramList.add(new BasicNameValuePair(key, param.get(key)));
+                    paramList.add(new BasicNameValuePair(key, String.valueOf(param.get(key))));
                 }
                 // 模拟表单
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(paramList);

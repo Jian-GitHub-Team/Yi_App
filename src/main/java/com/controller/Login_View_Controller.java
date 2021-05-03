@@ -1,7 +1,7 @@
 package com.controller;
 
+import com.globalDatas.Global_Datas;
 import com.service.Login_Service;
-import com.view.Login_View;
 import com.view.Registration_View;
 import com.view.User_View;
 import javafx.event.ActionEvent;
@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -36,19 +37,29 @@ public class Login_View_Controller {
     private Label registration;
 
     @FXML
-    void lgoin(ActionEvent event) {
-        if ( !"".equals(userName.getText()) && !"".equals(password.getText()) ){
-            if ( Login_Service.login(userName.getText() , password.getText()) ){
-                User_View user_view = new User_View();
-                stage.close();
-                user_view.start();
+    void login_Mouse(MouseEvent event) {
+        if(event.getButton() == MouseButton.PRIMARY) {
+            if (!"".equals(userName.getText()) && !"".equals(password.getText())) {
+                if (Login_Service.login(userName.getText(), password.getText())) {
+                    User_View user_view = new User_View();
+                    stage.close();
+                    user_view.start();
+                }
             }
         }
     }
 
     @FXML
-    void login(KeyEvent event) {
-
+    void login_Key(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            if (!"".equals(userName.getText()) && !"".equals(password.getText())) {
+                if (Login_Service.login(userName.getText(), password.getText())) {
+                    User_View user_view = new User_View();
+                    stage.close();
+                    user_view.start();
+                }
+            }
+        }
     }
 
     @FXML

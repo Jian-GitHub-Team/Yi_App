@@ -4,13 +4,15 @@ package com.view; /**
  */
 
 import javafx.application.*;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.*;
 
-import javax.swing.*;
+import java.io.File;
+import java.net.URL;
 
 /**
  * Java作为GUI(图形化用户界面)程序
@@ -36,6 +38,13 @@ public class JavaFX_GUI_Test extends Application {
             btn.setOnMouseClicked((Action)->{
                 new other().start();
             });
+            ImageView imageView = new ImageView();
+            System.out.println(new File("src/main/resources/images/avatar.png").toURI().getPath());
+            Image image1 = new Image("file:src/main/resources/images/avatar.png");
+//            Image image1 = new Image("file:"+new File("src/main/resources/images/avatar.png").toURI().getPath());
+//            imageView.setImage(image1);
+            imageView.setImage(image1);
+            root.setBottom(imageView);
 //            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm().toString());
             primaryStage.setScene(scene);
             primaryStage.setTitle("测试");

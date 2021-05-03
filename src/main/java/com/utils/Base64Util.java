@@ -15,10 +15,15 @@ public class Base64Util {
      * @return 返回加密后的文本 String
      * @throws UnsupportedEncodingException
      */
-    public static String encode(String text) throws UnsupportedEncodingException {
+    public static String encode(String text) {//} throws UnsupportedEncodingException {
         Base64.Decoder decoder = Base64.getDecoder();
         Base64.Encoder encoder = Base64.getEncoder();
-        byte[] textByte = text.getBytes("UTF-8");
+        byte[] textByte = new byte[0];
+        try {
+            textByte = text.getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         String encodedText = encoder.encodeToString(textByte);
         return encodedText;
     }
