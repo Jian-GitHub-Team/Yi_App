@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="498.0" prefWidth="998.0" spacing="10.0" style="-fx-background-color: black; -fx-background-insets: 0; -fx-background-color: black; -fx-border-insets: 0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="20.0">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../紫色星辰图标的副本.png" />
+               </image>
+               <effect>
+                  <DropShadow height="40.0" radius="19.5" width="40.0">
+                     <color>
+                        <Color red="0.7828947305679321" green="0.7828947305679321" blue="0.7828947305679321" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Label maxWidth="600.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="42.0" style="-fx-background-color: #FFFFFF33; -fx-background-radius: 19;" text="Labelyixiewenziyixie 文字文字文字文字" textFill="#a167ff" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </children>
+      </HBox>
+      <HBox nodeOrientation="LEFT_TO_RIGHT" spacing="20.0">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../紫色星辰图标的副本.png" />
+               </image>
+               <effect>
+                  <DropShadow height="40.0" radius="19.5" width="40.0">
+                     <color>
+                        <Color red="0.7828947305679321" green="0.7828947305679321" blue="0.7828947305679321" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="66.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF33#FFFFFF33; -fx-background-radius: 19;" text="中abelyixiewenziyixie 文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字" textFill="#a167ff" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </children>
+      </HBox>
+      <HBox nodeOrientation="RIGHT_TO_LEFT" spacing="20.0">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../紫色星辰图标的副本.png" />
+               </image>
+               <effect>
+                  <DropShadow height="40.0" radius="19.5" width="40.0">
+                     <color>
+                        <Color red="0.7828947305679321" green="0.7828947305679321" blue="0.7828947305679321" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="160.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF33#FFFFFF33; -fx-background-radius: 19;" text="Labelyixiewenziyixie 文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文Labelyixiewenziyixie 文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字Labelyixiewenziyixie 文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字字文字文字文字Labelyixiewenziyixie 文字文字文字文字文字文字文字文字文字文字文" textFill="#883ff7" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

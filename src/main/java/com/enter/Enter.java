@@ -8,9 +8,15 @@ import com.utils.HttpClientUtil;
 import com.utils.JsonUtils;
 import com.view.Login_View;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lombok.SneakyThrows;
 
 import java.util.*;
+import java.util.List;
 
 public class Enter {
     public static void main(String[] args) {
@@ -18,9 +24,16 @@ public class Enter {
 //        Login_Service.login();
 //        -p /Users/qi/javafx-sdk-11.0.2/lib --add-modules=javafx.controls,javafx.fxml
 
+//        Application.launch(tesrt.class,args);
+
+//        HashMap<String,Integer> hashMap = new HashMap<>();
+//        hashMap.put("1",1);
+//
+//        System.out.println(hashMap.get("1") == null);
     }
 
 }
+
 
 class Listener_Test {
 

@@ -56,15 +56,11 @@ public class Login_View extends Application {
         URL url = getClass().getClassLoader().getResource(fxml);
 //        System.out.println(fxml);
         if(url == null){
-            System.out.println("OOOOOOOOO");
             System.exit(0);
         }
-//        System.out.println(fxml);
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root = fxmlLoader.load();
-//        Login_View_Controller login_view_controller = (Login_View_Controller)fxmlLoader.getController();
         ((Login_View_Controller) fxmlLoader.getController()).setStage(primaryStage);
-//        root = new BorderPane();
         primaryStage.setX(view_x);
         primaryStage.setY(view_y);
 //        primaryStage.setOpacity(0.8);

@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,6 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="basePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.User_View_Controller">
@@ -34,9 +36,9 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
-            <BorderPane fx:id="rightBorderPane" prefHeight="700.0" prefWidth="200.0" style="-fx-background-color: rgb(0,0,0,0);" BorderPane.alignment="CENTER">
+            <BorderPane fx:id="leftBorderPane" prefHeight="700.0" prefWidth="200.0" style="-fx-background-color: rgb(0,0,0,0);" BorderPane.alignment="CENTER">
                <top>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: rgb(255,255,255);" BorderPane.alignment="CENTER">
                      <children>
                         <ImageView fx:id="addFriend" fitHeight="28.0" fitWidth="35.0" onMouseClicked="#clickAddFriend" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -45,15 +47,18 @@
                            <effect>
                               <DropShadow height="40.0" offsetX="1.0" offsetY="1.0" radius="24.5" width="60.0" />
                            </effect>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
                         </ImageView>
                      </children>
                      <BorderPane.margin>
-                        <Insets left="5.0" right="5.0" />
+                        <Insets />
                      </BorderPane.margin>
                   </HBox>
                </top>
                <center>
-                  <ScrollPane fx:id="friends_ScrollPane" prefHeight="200.0" prefWidth="210.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+                  <ScrollPane fx:id="friends_ScrollPane" opacity="0.95" prefHeight="200.0" prefWidth="210.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
                      <content>
                         <VBox fx:id="friendVBox" prefHeight="668.0" prefWidth="198.0" spacing="2.0" style="-fx-background-color: rgb(0,0,0);">
                            <padding>
@@ -65,13 +70,62 @@
             </BorderPane>
          </left>
          <right>
-            <BorderPane fx:id="leftBorderPane" prefHeight="670.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+            <BorderPane fx:id="rightBorderPane" prefHeight="670.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
                <center>
-                  <ImageView fx:id="backgroundImageView" fitHeight="700.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                     <image>
-                        <Image url="@../images/伊沟通85_Chat.png" />
-                     </image>
-                  </ImageView>
+                  <BorderPane fx:id="chatBorderPane" prefHeight="670.0" prefWidth="1000.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                     <top>
+                        <BorderPane prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+                           <center>
+                              <Label fx:id="chatFriend" text="chatFriend" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets left="50.0" />
+                                 </BorderPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="ONE_PASS_BOX" height="23.33" radius="9.4825" spread="0.03" width="16.6">
+                                       <color>
+                                          <Color red="0.5065789222717285" green="0.49719786643981934" blue="0.49719786643981934" />
+                                       </color>
+                                    </DropShadow>
+                                 </effect>
+                              </Label>
+                           </center>
+                           <right>
+                              <ImageView fx:id="friendState" fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets right="50.0" />
+                                 </BorderPane.margin>
+                                 <image>
+                                    <Image url="@../images/online.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow height="30.0" radius="14.5" width="30.0" />
+                                 </effect>
+                              </ImageView>
+                           </right>
+                        </BorderPane>
+                     </top>
+                     <bottom>
+                        <BorderPane prefHeight="670.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <bottom>
+                              <TextArea fx:id="chatTextArea" prefHeight="170.0" prefWidth="200.0" promptText="聊点什么......" style="-fx-background-color: transparent;" wrapText="true" BorderPane.alignment="CENTER">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextArea>
+                           </bottom>
+                           <center>
+                              <ScrollPane fx:id="chatScrollPane" hbarPolicy="NEVER" hmax="0.0" prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: black;" vvalue="1.0" BorderPane.alignment="CENTER">
+                                 <content>
+                                    <VBox fx:id="chatVBox" prefHeight="498.0" prefWidth="998.0" style="-fx-background-color: black; -fx-background-insets: 0; -fx-background-color: black; -fx-border-insets: 0;" />
+                                 </content>
+                              </ScrollPane>
+                           </center>
+                        </BorderPane>
+                     </bottom>
+                  </BorderPane>
                </center>
             </BorderPane>
          </right>

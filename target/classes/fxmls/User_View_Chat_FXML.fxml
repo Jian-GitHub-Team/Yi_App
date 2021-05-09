@@ -4,33 +4,64 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="670.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="670.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <BorderPane prefHeight="30.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
-            <Label text="nowUser" BorderPane.alignment="CENTER" />
+            <Label text="chatFriend" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="50.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="23.33" radius="9.4825" spread="0.03" width="16.6">
+                     <color>
+                        <Color red="0.5065789222717285" green="0.49719786643981934" blue="0.49719786643981934" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
          </center>
+         <right>
+            <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="50.0" />
+               </BorderPane.margin>
+               <image>
+                  <Image url="@../images/online.png" />
+               </image>
+               <effect>
+                  <DropShadow height="30.0" radius="14.5" width="30.0" />
+               </effect>
+            </ImageView>
+         </right>
       </BorderPane>
    </top>
    <bottom>
       <BorderPane prefHeight="670.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <top>
-            <ScrollPane prefHeight="500.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <bottom>
+            <TextArea prefHeight="170.0" prefWidth="200.0" promptText="聊点什么......" style="-fx-background-color: transparent;" wrapText="true" BorderPane.alignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></TextArea>
+         </bottom>
+         <center>
+            <ScrollPane prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
                <content>
-                  <AnchorPane prefHeight="490.0" prefWidth="980.0" style="-fx-background-color: transparent;">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </AnchorPane>
+                  <VBox prefHeight="498.0" prefWidth="998.0" style="-fx-background-color: black; -fx-background-insets: 0; -fx-background-color: black; -fx-border-insets: 0;" />
                </content>
             </ScrollPane>
-         </top>
-         <bottom>
-            <TextArea prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER" />
-         </bottom>
+         </center>
       </BorderPane>
    </bottom>
 </BorderPane>

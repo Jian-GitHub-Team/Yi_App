@@ -26,12 +26,7 @@ public class User_Service {
             HashMap<String, Integer> hashMap = new HashMap<>();
             hashMap.put("ID", ID);
             String s_user = HttpClientUtil.doPost(url,hashMap);
-//            System.out.println(s_user);
-//            System.out.println(Base64Util.decode(s_user));
             user = JsonUtils.jsonToList("[" + Base64Util.decode(s_user) + "]", User.class).get(0);
-//            user.setCreateDate(Base64Util.decode(user.getCreateDate()));
-//            SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//            Date date = timeFormat.parse(user.getCreateDate());
             return user;
         } catch (Exception e) {
             e.printStackTrace();

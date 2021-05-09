@@ -1,9 +1,14 @@
 package com.controller;
 
+import com.entity.ChatContent;
 import com.globalDatas.Global_Datas;
 import com.service.Login_Service;
+import com.threads.Friend_Thread;
+import com.threads.User_Thread;
+import com.view.Chat_Content_Box;
 import com.view.Registration_View;
 import com.view.User_View;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -41,6 +46,13 @@ public class Login_View_Controller {
         if(event.getButton() == MouseButton.PRIMARY) {
             if (!"".equals(userName.getText()) && !"".equals(password.getText())) {
                 if (Login_Service.login(userName.getText(), password.getText())) {
+
+                    Global_Datas.setUserUpdateThread(new User_Thread());
+                    Global_Datas.getUserUpdateThread().start();//开始实时刷新本用户数据
+
+                    Global_Datas.setFriend_thread(new Friend_Thread());
+                    Global_Datas.getFriend_thread().start();//开始实时刷新本用户所有好友
+
                     User_View user_view = new User_View();
                     stage.close();
                     user_view.start();
@@ -54,6 +66,13 @@ public class Login_View_Controller {
         if (event.getCode() == KeyCode.ENTER) {
             if (!"".equals(userName.getText()) && !"".equals(password.getText())) {
                 if (Login_Service.login(userName.getText(), password.getText())) {
+
+                    Global_Datas.setUserUpdateThread(new User_Thread());
+                    Global_Datas.getUserUpdateThread().start();//开始实时刷新本用户数据
+
+                    Global_Datas.setFriend_thread(new Friend_Thread());
+                    Global_Datas.getFriend_thread().start();//开始实时刷新本用户所有好友
+
                     User_View user_view = new User_View();
                     stage.close();
                     user_view.start();

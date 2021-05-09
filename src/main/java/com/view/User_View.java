@@ -50,9 +50,9 @@ public class User_View {
         String fxml = "fxmls/User_View_FXML.fxml";
         URL url = getClass().getClassLoader().getResource(fxml);
         FXMLLoader fxmlLoader = new FXMLLoader(url);
-        Parent root;
         try {
             root = fxmlLoader.load();
+            root.setBackground(null);
 //            User_View_Controller user_view_controller = fxmlLoader.getController();
 //            user_view_controller.test();//开始线程
         } catch (IOException e) {
@@ -64,6 +64,7 @@ public class User_View {
         primaryStage.setTitle("Yi");
 
         scene = new Scene(root);
+        scene.setFill(null);
 
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
@@ -134,7 +135,7 @@ public class User_View {
             yOffset = event.getSceneY();
         });
 
-        primaryStage.setAlwaysOnTop(true);
+//        primaryStage.setAlwaysOnTop(true);
         primaryStage.show();
     }
 
